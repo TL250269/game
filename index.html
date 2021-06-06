@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <style rel="stylesheet" href="css/main.css"></style>
+    <style rel="stylesheet" href="css/reset.css"></style>
+    <script src="node_modules/pixi.js/dist/browser/pixi.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+</head>
+
+
+
+
+<body>
+<script type="text/javascript" >
+    let type = "WebGL"
+    if(!PIXI.utils.isWebGLSupported()){
+        type = "canvas"
+    }
+    let app = new PIXI.Application({
+        antialias: true,    // default: false
+        transparent: false, // default: false
+        resolution: 1       // default: 1
+    });
+
+    app.renderer.view.style.position = "absolute";
+    app.renderer.view.style.display = "block";
+    app.renderer.autoResize = true;
+    app.renderer.resize(window.innerWidth, window.innerHeight);
+
+
+    //Add the canvas that Pixi automatically created for you to the HTML document
+    document.body.appendChild(app.view);
+
+
+    PIXI.utils.sayHello(type)
+</script>
+</body>
+</html>
+6
