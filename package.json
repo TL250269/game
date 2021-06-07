@@ -30,20 +30,7 @@
       ],
       "@semantic-release/changelog",
       "@semantic-release/git",
-      [
-        "semantic-release-github-pullrequest",
-        {
-          "assets": [
-            "package.json",
-            "CHANGELOG.md"
-          ],
-          "baseRef": "main"
-        }
-      ],
       "@semantic-release/release-notes-generator"
     ]
-  },
-  "devDependencies": {
-    "semantic-release-github-pullrequest": "^1.1.2"
   }
 }
