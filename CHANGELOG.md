@@ -1,3 +1,23 @@
+## [1.4.1](https://github.com/TL250269/game/compare/v1.4.0...v1.4.1) (2021-06-07)
+
+
+### Bug Fixes
+
+* trying new workflow? ([3dbe1b4](https://github.com/TL250269/game/commit/3dbe1b4ed93f1c0de8952b5d2345a81f3253ed27))
+* trying new workflow? ([8df73c5](https://github.com/TL250269/game/commit/8df73c559cf5c353cfe741688c7f9b59c6389e36))
+
+
+
+
+
+## [1.4.1](https://github.com/TL250269/game/compare/v1.4.0...v1.4.1) (2021-06-07)
+
+
+### Bug Fixes
+
+* trying new workflow? ([3dbe1b4](https://github.com/TL250269/game/commit/3dbe1b4ed93f1c0de8952b5d2345a81f3253ed27))
+* trying new workflow? ([8df73c5](https://github.com/TL250269/game/commit/8df73c559cf5c353cfe741688c7f9b59c6389e36))
+
 # [1.4.0](https://github.com/TL250269/game/compare/v1.3.2...v1.4.0) (2021-06-07)
 
 
