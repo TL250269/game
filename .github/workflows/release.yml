@@ -3,20 +3,35 @@ on:
   push:
     branches:
       - master
+      - next
+  repository_dispatch:
+    types: [ semantic-release ]
+
+env:
+  NODE_VERSION: 15
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   release:
-    name: release
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      # check out repository code and setup node
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          node-version: "12.x"
-      # install dependencies and run semantic-release
-      - run: npm ci
-      - run: npx semantic-release
+          fetch-depth: 0
+      - id: inject_npmrc_auth
+        name: Inject auth into .npmrc
+        run: echo -e '\n_auth=$${{ env.NPM_TOKEN }}' >> .npmrc
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ env.NPM_TOKEN }}
+        run: npx semantic-release
