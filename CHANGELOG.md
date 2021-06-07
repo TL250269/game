@@ -1,3 +1,21 @@
+## [1.3.2](https://github.com/TL250269/game/compare/v1.3.1...v1.3.2) (2021-06-07)
+
+
+### Bug Fixes
+
+* **versions:** checking out plugins. ([e43fed6](https://github.com/TL250269/game/commit/e43fed6196cf58f323dbe965676fd59fed978c1f))
+
+
+
+
+
+## [1.3.2](https://github.com/TL250269/game/compare/v1.3.1...v1.3.2) (2021-06-07)
+
+
+### Bug Fixes
+
+* **versions:** checking out plugins. ([e43fed6](https://github.com/TL250269/game/commit/e43fed6196cf58f323dbe965676fd59fed978c1f))
+
 ## [1.3.1](https://github.com/TL250269/game/compare/v1.3.0...v1.3.1) (2021-06-07)
 
 
