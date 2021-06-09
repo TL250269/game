@@ -1,3 +1,21 @@
+## [1.4.4](https://github.com/TL250269/game/compare/v1.4.3...v1.4.4) (2021-06-09)
+
+
+### Bug Fixes
+
+* **versons:** on [@latest](https://github.com/latest) ([754cdde](https://github.com/TL250269/game/commit/754cddef5ab1cd1774f150ca8e4325c50e9a89d4))
+
+
+
+
+
+## [1.4.4](https://github.com/TL250269/game/compare/v1.4.3...v1.4.4) (2021-06-09)
+
+
+### Bug Fixes
+
+* **versons:** on [@latest](https://github.com/latest) ([754cdde](https://github.com/TL250269/game/commit/754cddef5ab1cd1774f150ca8e4325c50e9a89d4))
+
 ## [1.4.3](https://github.com/TL250269/game/compare/v1.4.2...v1.4.3) (2021-06-07)
 
 
