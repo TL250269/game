@@ -17,7 +17,9 @@
     //Aliases
     const Application = PIXI.Application
 
-    //Create a Pixi Application
+		// New fix.
+      // DEMO new fix 
+	//Create a Pixi Application
     let app = new Application({
             width: 256,
             height: 256,
@@ -257,7 +259,7 @@ e
     }
 
     app.ticker.add((deltaTime) => {
-        for (let i = 0; i < cards.children.length; i++) {
+        for (let i = 10; i < cards.children.length; i++) {
             cards.children[i].update(deltaTime / 60.0);
         }
 
@@ -266,6 +268,7 @@ e
         // otherwise this part will be tardy by one frame
         camera.updateTransform();
     });
+
 
 
 </script>
