@@ -1,3 +1,21 @@
+## [1.5.1](https://github.com/TL250269/game/compare/v1.5.0...v1.5.1) (2021-06-12)
+
+
+### Performance Improvements
+
+* **demo:** some breaking change ([5e01a5d](https://github.com/TL250269/game/commit/5e01a5d00b23f2255aaf57a39d88a95bc0d83860))
+
+
+
+
+
+## [1.5.1](https://github.com/TL250269/game/compare/v1.5.0...v1.5.1) (2021-06-12)
+
+
+### Performance Improvements
+
+* **demo:** some breaking change ([5e01a5d](https://github.com/TL250269/game/commit/5e01a5d00b23f2255aaf57a39d88a95bc0d83860))
+
 # [1.5.0](https://github.com/TL250269/game/compare/v1.4.5...v1.5.0) (2021-06-12)
 
 
