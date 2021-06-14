@@ -1,3 +1,21 @@
+## [1.5.2](https://github.com/TL250269/game/compare/v1.5.1...v1.5.2) (2021-06-14)
+
+
+### Bug Fixes
+
+* **demo:** bumping version patch ([c248a85](https://github.com/TL250269/game/commit/c248a8575c03dfd6f973e856292de9fd8a7e185d))
+
+
+
+
+
+## [1.5.2](https://github.com/TL250269/game/compare/v1.5.1...v1.5.2) (2021-06-14)
+
+
+### Bug Fixes
+
+* **demo:** bumping version patch ([c248a85](https://github.com/TL250269/game/commit/c248a8575c03dfd6f973e856292de9fd8a7e185d))
+
 ## [1.5.1](https://github.com/TL250269/game/compare/v1.5.0...v1.5.1) (2021-06-12)
 
 
