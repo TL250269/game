@@ -14,31 +14,22 @@
 <body>
 <div id="display"></div>
 <script>
-    PIXI.utils.sayHello("hello")
-    let renderer = PIXI.autoDetectRenderer(512,512,{
-        transparent: true,
-        resolution: 1
-    })
 
-    const loader = PIXI.Loader.shared;
+    let app = new PIXI.Application({width: 256, height: 256});
     //or this one
-    document.getElementById("display").appendChild(renderer.view)
-    let stage = new PIXI.Container();
-    loader.add('./images/bunny.png')
-        .load(setup);
+    document.getElementById("display").appendChild(app.view)
+    let stage = new PIXI.Container()
+    app.loader.add('square', 'images/bunny.png')
+        .load(startup);
 
-    let rat;
-
-    function setup() {
-        rat = new PIXI.Sprite(
-            PIXI.loader.resources["rat"].texture
-        )
+    function startup() {
+        const rat = new PIXI.Sprite(app.loader.resources.s)
         stage.addChild(rat)
         animateLoop();
     }
 
     function animateLoop() {
-        requestAnimationFrame(animationLoop);
+        requestAnimationFrame(animateLoop);
         rat.rotation += 0.01
     }
 
