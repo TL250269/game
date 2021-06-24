@@ -1,3 +1,21 @@
+## [1.5.3](https://github.com/TL250269/game/compare/v1.5.2...v1.5.3) (2021-06-24)
+
+
+### Bug Fixes
+
+* **removing releaseRC:** Removing release rc ([7ddf759](https://github.com/TL250269/game/commit/7ddf759f6e24543df6eb4bd8a2bf93b9a1b25b58))
+
+
+
+
+
+## [1.5.3](https://github.com/TL250269/game/compare/v1.5.2...v1.5.3) (2021-06-24)
+
+
+### Bug Fixes
+
+* **removing releaseRC:** Removing release rc ([7ddf759](https://github.com/TL250269/game/commit/7ddf759f6e24543df6eb4bd8a2bf93b9a1b25b58))
+
 ## [1.5.2](https://github.com/TL250269/game/compare/v1.5.1...v1.5.2) (2021-06-14)
 
 
