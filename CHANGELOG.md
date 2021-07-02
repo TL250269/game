@@ -1,3 +1,21 @@
+## [1.5.4](https://github.com/TL250269/game/compare/v1.5.3...v1.5.4) (2021-07-02)
+
+
+### Bug Fixes
+
+* upgrade @semantic-release/release-notes-generator from 9.0.2 to 9.0.3 ([7c6f97b](https://github.com/TL250269/game/commit/7c6f97b49d8ff495f343475c3bb16eff09ef3fa8))
+
+
+
+
+
+## [1.5.4](https://github.com/TL250269/game/compare/v1.5.3...v1.5.4) (2021-07-02)
+
+
+### Bug Fixes
+
+* upgrade @semantic-release/release-notes-generator from 9.0.2 to 9.0.3 ([7c6f97b](https://github.com/TL250269/game/commit/7c6f97b49d8ff495f343475c3bb16eff09ef3fa8))
+
 ## [1.5.3](https://github.com/TL250269/game/compare/v1.5.2...v1.5.3) (2021-06-24)
 
 
