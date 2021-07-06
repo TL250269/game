@@ -29,26 +29,28 @@ SHA1=$3
 
 #!/bin/bash
 PS3='What kind of change is this? '
-change=("Patch", "Feature/Minor", "Breaking/Major", "Quit")
+# shellcheck disable=SC2039
+change=("Patch" "Feature/Minor" "Breaking/Major" "Quit")
+# shellcheck disable=SC2039
 select val in "${change[@]}"; do
     case $val in
-        "Patch")
-			  echo "'fix(): has been appended to you commit."
-        sed -i.bak -e "1s/^/[patch(): ] /" $1
+        "${change[0]}")
+          sed -i.bak -e "1s/^/[patch(): ] /" COMMIT_MSG_FILE
+          echo COMMIT_MSG_FILE
+          ;;
+        "${change[1]}")
+			    echo "'feat():' has been appended to your commit."
+	        # optionally call a function or run some code here
+          ;;
+        "${change[2]}")
+			    echo "'perf():' has been appended to your commit."
+	        # optionally call a function or run some code here
+	        break
             ;;
-        "Feature/Minor")
-			  echo "'feat():' has been appended to your commit."
-	    # optionally call a function or run some code here
-            ;;
-        "Breaking/Major")
-			  echo "'perf():' has been appended to your commit."
-	    # optionally call a function or run some code here
-	    break
-            ;;
-	"Quit")
-	    echo "User requested exit"
-	    exit
-	    ;;
+	      "Quit")
+	        echo "User requested exit"
+	        exit
+	        ;;
         *) echo "invalid option $REPLY";;
     esac
 done
