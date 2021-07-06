@@ -7,7 +7,7 @@
 # message file.  If the hook fails with a non-zero status,
 # the commit is aborted.	
 #
-# To enable this hook, rename this file to "prepare-commit-msg".
+# To enable this hook, rename this file to "prepare-.gitmessage.txt".
 
 # This hook includes three examples. The first one removes the
 # "# Please enter the commit message..." help message.
@@ -20,97 +20,32 @@
 # The third example adds a Signed-off-by line to the message, that can
 # still be edited.  This is rarely a good idea.
 
-COMMIT_MSG_FILE=$1
-COMMIT_SOURCE=$2
-SHA1=$3
+COMMIT_MSG_FILE = $1
 #!/bin/bash
 echo 'What kind of change is this? '
-
+exec < /dev/tty
 # shellcheck disable=SC2039
-change=("Patch" "Feature/Minor" "Breaking/Major" "Quit")
+change=("Patch" "Feature" "Breaking" "Quit")
 # shellcheck disable=SC2039
 select val in "${change[@]}"; do
     case $REPLY in
-        "${change[0]}")
+        "1")
           # sed -i.bak -e "1s/^/[patch(): ] /" COMMIT_MSG_FILE
-          /usr/bin/perl -i.bak -pe "1s/^/[patch(): ] /" "$COMMIT_MSG_FILE"
-          echo "$COMMIT_MSG_FILE"
+          # /usr/bin/perl -i.bak -pe "" "$COMMIT_MSG_FILE"
+          sed -i.bak -e "1s/^/patch(): /" '.gitmessage.txt'
           ;;
-        "${change[1]}")
-			    echo "'feat():' has been appended to your commit."
-	        # optionally call a function or run some code here
+        "2")
+        # optionally call a function or run some code here
           ;;
-        "${change[2]}")
+        "3")
 			    echo "'perf():' has been appended to your commit." ;
 	        # optionally call a function or run some code here
 	        break
             ;;
-	      "Quit")
+	      "4")
 	        echo "User requested exit"
 	        exit
 	        ;;
         *) echo "invalid option $REPLY";;
     esac
 done
-#!/bin/bash
-
-# This way you can customize which branches should be skipped when
-# prepending commit message.
-#if [ -z "$BRANCHES_TO_SKIP" ]; then
-#  BRANCHES_TO_SKIP=(master develop test)
-#fi
-#
-#BRANCH_NAME=$(git symbolic-ref --short HEAD)
-#BRANCH_NAME="${BRANCH_NAME##*/}"
-#
-#BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
-#BRANCH_IN_COMMIT=$(grep -c "\[$BRANCH_NAME\]" $1)
-#
-#if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]; then
-#  sed -i.bak -e "1s/^/[$BRANCH_NAME] /" $1
-#fi
-
-# case "$COMMIT_SOURCE,$SHA1" in
-#  ,|template,)
-#    /usr/bin/perl -i.bak -pe '
-#       print "\n" . `git diff --cached --name-status -r`
-# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
-#*) ;;
-# esac
-
-# SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
-# git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
-# if test -z "$COMMIT_SOURCE"
-# then
-#   /usr/bin/perl -i.bak -pe 'print "\n" if !$first_line++' "$COMMIT_MSG_FILE"
-# fi
-#! /bin/bash
-
-title="Select example"
-prompt="Pick an option:"
-options=("A" "B" "C")
-
-echo "$title"
-PS3="$prompt "
-select opt in "${options[@]}" "Quit"; do
-    case "$REPLY" in
-    1) echo "You picked $opt which is option 1";;
-    2) echo "You picked $opt which is option 2";;
-    3) echo "You picked $opt which is option 3";;
-    $((${#options[@]}+1))) echo "Goodbye!"; break;;
-    *) echo "Invalid option. Try another one.";continue;;
-    esac
-done
-
-while opt=$(zenity --title="$title" --text="$prompt" --list \
-                   --column="Options" "${options[@]}")
-do
-    case "$opt" in
-    "${options[0]}") zenity --info --text="You picked $opt, option 1";;
-    "${options[1]}") zenity --info --text="You picked $opt, option 2";;
-    "${options[2]}") zenity --info --text="You picked $opt, option 3";;
-    *) zenity --error --text="Invalid option. Try another one.";;
-    esac
-done
-
-
