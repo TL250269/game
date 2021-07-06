@@ -20,32 +20,45 @@
 # The third example adds a Signed-off-by line to the message, that can
 # still be edited.  This is rarely a good idea.
 
-COMMIT_MSG_FILE = $1
+if [ -z "$BRANCHES_TO_SKIP" ]; then
+  BRANCHES_TO_SKIP=(master develop test)
+fi
+
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+BRANCH_NAME="${BRANCH_NAME##*/}"
+
+BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
+BRANCH_IN_COMMIT=$(grep -c "\[$BRANCH_NAME\]" "$1")
+
 #!/bin/bash
-echo 'What kind of change is this? '
+if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]; then
+echo 'What kind of CHANGE is this? '
 exec < /dev/tty
 # shellcheck disable=SC2039
-change=("Patch" "Feature" "Breaking" "Quit")
+CHANGE=("Patch" "Feature" "Breaking" "Quit")
 # shellcheck disable=SC2039
-select val in "${change[@]}"; do
-    case $REPLY in
-        "1")
-          # sed -i.bak -e "1s/^/[patch(): ] /" COMMIT_MSG_FILE
-          # /usr/bin/perl -i.bak -pe "" "$COMMIT_MSG_FILE"
-          sed -i.bak -e "1s/^/patch(): /" '.gitmessage.txt'
-          ;;
-        "2")
-        # optionally call a function or run some code here
-          ;;
-        "3")
-			    echo "'perf():' has been appended to your commit." ;
-	        # optionally call a function or run some code here
-	        break
+  # shellcheck disable=SC1073
+  select val in "${CHANGE[@]}"; do
+      case $REPLY in
+          "1")
+            # sed -i.bak -e "1s/^/[patch(): ] /" COMMIT_MSG_FILE
+            # /usr/bin/perl -i.bak -pe "" "$COMMIT_MSG_FILE"
+            sed -i.bak -e "1s/^/patch(): /" "$1"
+            exit
             ;;
-	      "4")
-	        echo "User requested exit"
-	        exit
-	        ;;
-        *) echo "invalid option $REPLY";;
-    esac
-done
+          "2")
+          # optionally call a function or run some code here
+            ;;
+          "3")
+            echo "'perf():' has been appended to your commit." ;
+            # optionally call a function or run some code here
+            break
+              ;;
+          "4")
+            echo "User requested exit"
+            exit
+            ;;
+          *) echo "invalid option $REPLY";;
+      esac
+  done
+fi
