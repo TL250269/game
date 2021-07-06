@@ -41,17 +41,16 @@ CHANGE=("Patch" "Feature" "Breaking" "Quit")
   select val in "${CHANGE[@]}"; do
       case $REPLY in
           "1")
-            # sed -i.bak -e "1s/^/[patch(): ] /" COMMIT_MSG_FILE
-            # /usr/bin/perl -i.bak -pe "" "$COMMIT_MSG_FILE"
             sed -i.bak -e "1s/^/patch(): /" "$1"
             exit
             ;;
           "2")
-          # optionally call a function or run some code here
+            sed -i.bak -e "1s/^/feat(): /" "$1"
+            exit
             ;;
           "3")
-            echo "'perf():' has been appended to your commit." ;
-            # optionally call a function or run some code here
+            sed -i.bak -e "1s/^/perf(): /" "$1"
+            exit
             break
               ;;
           "4")
