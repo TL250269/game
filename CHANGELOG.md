@@ -1,3 +1,23 @@
+# [1.6.0](https://github.com/TL250269/game/compare/v1.5.4...v1.6.0) (2021-07-14)
+
+
+### Features
+
+* demoing git hook ([e622cff](https://github.com/TL250269/game/commit/e622cff5cd73178e757d37082fd53a6569940db7))
+* showing git hook ([e420caf](https://github.com/TL250269/game/commit/e420caf9877ededb77d0965e91ee21b76f928b24))
+
+
+
+
+
+# [1.6.0](https://github.com/TL250269/game/compare/v1.5.4...v1.6.0) (2021-07-14)
+
+
+### Features
+
+* demoing git hook ([e622cff](https://github.com/TL250269/game/commit/e622cff5cd73178e757d37082fd53a6569940db7))
+* showing git hook ([e420caf](https://github.com/TL250269/game/commit/e420caf9877ededb77d0965e91ee21b76f928b24))
+
 ## [1.5.4](https://github.com/TL250269/game/compare/v1.5.3...v1.5.4) (2021-07-02)
 
 
