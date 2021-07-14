@@ -17,9 +17,8 @@ if [[ $BRANCH_NAME =~ /([A-Z]{1,4}-[0-9]{1,4}) ]]; then
 fi
 
 exec < /dev/tty
-echo -e ""
 if [$TICKET_NAME -eq '']; then
-	echo -e "What is the ticket number?"
+	echo -e "What is the TICKET number associated with this commit?"
 	read -r TICKET_NAME
 fi
 
