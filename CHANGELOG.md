@@ -1,3 +1,21 @@
+# [1.7.0](https://github.com/TL250269/game/compare/v1.6.0...v1.7.0) (2021-07-14)
+
+
+### Features
+
+* **shasta-2457:** demo for hook ([2ca77d8](https://github.com/TL250269/game/commit/2ca77d8ef1733a78b25374f69518ac8a43c0f136))
+
+
+
+
+
+# [1.7.0](https://github.com/TL250269/game/compare/v1.6.0...v1.7.0) (2021-07-14)
+
+
+### Features
+
+* **shasta-2457:** demo for hook ([2ca77d8](https://github.com/TL250269/game/commit/2ca77d8ef1733a78b25374f69518ac8a43c0f136))
+
 # [1.6.0](https://github.com/TL250269/game/compare/v1.5.4...v1.6.0) (2021-07-14)
 
 
