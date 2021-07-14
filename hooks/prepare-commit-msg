@@ -9,7 +9,7 @@ BRANCH_NAME="${BRANCH_NAME##*/}"
 
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 BRANCH_IN_COMMIT=$(grep -c "\[$BRANCH_NAME\]" "$1")
-TICKET_NAME=""
+TICKET_NAME=''
 BRANCH_NAME=`git symbolic-ref --short HEAD`
 
 if [[ $BRANCH_NAME =~ /([A-Z]{1,4}-[0-9]{1,4}) ]]; then
@@ -17,24 +17,25 @@ if [[ $BRANCH_NAME =~ /([A-Z]{1,4}-[0-9]{1,4}) ]]; then
 fi
 
 exec < /dev/tty
+echo -e ""
 
-if ["$TICKET_NAME" -ne ""]; then 
+if [$TICKET_NAME -ne '']; then 
 	while read -p "Is this for ticket number $TICKET_NAME (Y/n) " yn; do
     case $yn in
         [Yy] ) break;;
-        [Nn] ) TICKET_NAME=""
+        [Nn] ) TICKET_NAME=''
           break;;
     esac
 	done
 fi
 
-if ["$TICKET_NAME" -eq ""]; then
-	echo "What is the ticket number?"
+if [$TICKET_NAME -eq '']; then
+	echo -e "What is the ticket number?"
 	read -r TICKET_NAME
 fi
 
 if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]; then
-	echo 'What kind of CHANGE is this? '
+	echo '\n What kind of CHANGE is this? \n'
 	# shellcheck disable=SC2039
 	CHANGE=("Patch" "Feature" "Breaking" "Quit")
 	# shellcheck disable=SC2039
