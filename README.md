@@ -3,6 +3,7 @@
 [![Release](https://github.com/TL250269/game/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/TL250269/game/actions/workflows/release.yml)
 
 #Game
-
+#Git configurations 
+`git config core.hooksPath .githooks`   
 ### local usage 
 First `npm install`  and then from a terminal cd to root of project and start server ` http-server ./`
